@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="email_configure_setting_general_custom_email" label="Custom Email" file="custom_email.html"
+              type="html" module="RLTS_SendEmail" area="adminhtml"/>
+</config>
+

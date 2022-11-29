@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="email_configure" translate="label" sortOrder="50">
+            <label>Email Configuration</label>
+        </tab>
+        <section id="email_configure_setting" translate="label" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+            <class>separator-top</class>
+            <tab>email_configure</tab>
+            <resource>RLTS_SendEmail::email_configure</resource>
+            <label>Email Setting</label>
+            <group id="general" translate="label" showInWebsite="1" showInStore="1" showInDefault="1" sortOrder="1">
+                <label>General Settings</label>
+                <field id="custom_email" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Select the Email Template.</comment>
+                </field>
+                <field id="email_from" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender Address</label>
+                    <validate>required-entry validate-email</validate>
+                    <comment>Sender email address, required entry</comment>
+                </field>
+                <field id="email_from_name" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender Name</label>
+                    <validate>required-entry</validate>
+                    <comment>Sender email, required entry</comment>
+                </field>
+                <field id="email_to" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Receiver Address</label>
+                    <validate>required-entry validate-email</validate>
+                    <comment>Receiver email address, required entry</comment>
+                </field>
+                <field id="email_to_name" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Receiver Name</label>
+                    <comment>Receiver name</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

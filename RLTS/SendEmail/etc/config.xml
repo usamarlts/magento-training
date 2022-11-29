@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <email_configure_setting>
+            <general>
+                <custom_email>email_configuration_setting_general_custom_email</custom_email>
+            </general>
+        </email_configure_setting>
+        <email_configure_setting>
+            <general>
+                <email_from>usama.aslam@rltsquare.com</email_from>
+            </general>
+        </email_configure_setting>
+        <email_configure_setting>
+            <general>
+                <email_from_name>Usama Aslam</email_from_name>
+            </general>
+        </email_configure_setting>
+        <email_configure_setting>
+            <general>
+                <email_to>usama.aslam@rltsquare.com</email_to>
+            </general>
+        </email_configure_setting>
+        <email_configure_setting>
+            <general>
+                <email_to_name>Usama Aslam</email_to_name>
+            </general>
+        </email_configure_setting>
+    </default>
+</config>
