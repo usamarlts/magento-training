@@ -9,14 +9,14 @@ use Magento\Framework\MessageQueue\PublisherInterface;
 use Magento\Framework\Serialize\Serializer\Json;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class CustomCommand extends Command
 {
-    private const VARIABLE1 = '-var1';
-    private const VARIABLE2 = '-var2';
+    private const INPUT_OPTION_VAR1 = 'variable1';
+    private const INPUT_OPTION_VAR2 = 'variable2';
 
     /**
      * @var Json
@@ -30,20 +30,27 @@ class CustomCommand extends Command
      * @var LoggerInterface
      */
     protected LoggerInterface $logger;
+    /**
+     * @var InputOption
+     */
+    protected InputOption $inputOption;
 
     /**
      * @param PublisherInterface $publisher
      * @param LoggerInterface $logger
      * @param Json $json
+     * @param InputOption $inputOption
      */
     public function __construct(
         PublisherInterface $publisher,
         LoggerInterface $logger,
-        Json $json
+        Json $json,
+        InputOption $inputOption
     ) {
         $this->publisher = $publisher;
         $this->logger = $logger;
         $this->json = $json;
+        $this->inputOption = $inputOption;
         parent::__construct();
     }
 
@@ -53,10 +60,8 @@ class CustomCommand extends Command
     protected function configure(): void
     {
         $this->setName('rltsquare:hello:world')->setDescription('Custom Command');
-        $this->setDefinition([
-            new InputArgument(self::VARIABLE1, InputArgument::REQUIRED, "Variable1"),
-            new InputArgument(self::VARIABLE2, InputArgument::REQUIRED, "Variable1")
-        ]);
+        $this->addOption(self::INPUT_OPTION_VAR1, "-var1", InputOption::VALUE_REQUIRED, "Variable1");
+        $this->addOption(self::INPUT_OPTION_VAR2, "-var2", InputOption::VALUE_REQUIRED, "Variable2");
         parent::configure();
     }
 
@@ -70,8 +75,8 @@ class CustomCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $var1 = $input->getArgument(self::VARIABLE1);
-        $var2 = $input->getArgument(self::VARIABLE2);
+        $var1 = $input->getArgument(self::INPUT_OPTION_VAR1);
+        $var2 = $input->getArgument(self::INPUT_OPTION_VAR2);
 
         try {
             if (!empty($var1) && !empty($var2)) {
