@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin" title="Magento_Admin">
+                <resource id="RLTSquare_Unit3::header" title="RLTSquare_Menu" sortOrder="10">
+                    <resource id="RLTSquare_Unit3::menu1" title="RLTSquare_Extension" sortOrder="20">
+                        <resource id="RLTSquare_Unit3::sub_menu1" title="RLTSquare_Unit3" sortOrder="30"/>
+                    </resource>
+                    <resource id="RLTSquare_Unit3::menu2" title="RLTSquare_Unit3" sortOrder="40">
+                        <resource id="RLTSquare_Unit3::sub_menu2" title="RLTSquare_Configuration" sortOrder="50"/>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores" title="Magento_Stores" sortOrder="60">
+                    <resource id="Magento_Backend::stores_settings" title="Magento_StoreSetting" sortOrder="70">
+                        <resource id="Magento_Config::config" title="Magento_StoreConfiguration" sortOrder="80">
+                            <resource id="RLTSquare_Unit3::unit3_config" title="RLTSquare_Configuration" sortOrder="90"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

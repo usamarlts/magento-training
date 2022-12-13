@@ -1,0 +1,25 @@
+<?php
+/**
+* @var $helper
+*/
+$helper = $this->helper('RLTSquare\Unit3\Helper\Data\Data');
+?>
+
+<strong>Username:</strong>
+<?php echo $helper->getConfig('unit3/general/username'); ?><br>
+
+<strong>Password:</strong>
+<?php
+$type = $helper->getConfig('unit3/general/dropdown');
+$pass = $helper->getConfig('unit3/general/password');
+if ($type == 'Staging' || $type == 'Development') {
+    $result = substr($pass, 0, 3);
+    echo $result;
+} elseif ($type == 'Production') {
+    $result = substr($pass, 0, 0);
+    echo $result;
+}
+?><br>
+
+<strong>Environment type:</strong>
+<?php echo $type ?><br>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="rltsquare" translate="label" sortOrder="10">
+            <label>RLTSquare</label>
+        </tab>
+        <section id="unit3" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Unit 3</label>
+            <tab>rltsquare</tab>
+            <resource>RLTSquare_Unit3::unit3_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>UserName</label>
+                </field>
+                <field id='password' translate='label' type='password' sortOrder='30' showInDefault='1' showInWebsite='1' showInStore='1'>
+                    <label>Password</label>
+                </field>
+                <field id="dropdown" translate="label comment" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Environment Type</label>
+                    <source_model>RLTSquare\Unit3\Model\Config\Source\Dropdown</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
